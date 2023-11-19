@@ -14,7 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 LogoComponent],
   exports: [HeaderComponent,
   CustomInputComponent,
-LogoComponent],
+LogoComponent, 
+ReactiveFormsModule],
   imports: [
     CommonModule,
     IonicModule,
