@@ -60,7 +60,7 @@ export class AuthPage implements OnInit {
 
       this.firebaseSvc.getDocument(path).then((user: User | undefined)  => {
         if (user) {
-          this.utilsSvc.saveInLocalStorage('user', user.name);
+          this.utilsSvc.saveInLocalStorage('user', user);
           this.utilsSvc.routerLink('/main/home');
           this.form.reset();
       

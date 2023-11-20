@@ -107,7 +107,7 @@ async deleteProduct(product: Product) {
     this.utilsSvc.presentToast({
       message: 'Objeto eliminado correctamente',
       duration: 2800,
-      color: 'danger',
+      color: 'success',
       position: 'middle',
       icon: 'checkmark-circle-outline',
     });
@@ -117,7 +117,7 @@ async deleteProduct(product: Product) {
     this.utilsSvc.presentToast({
       message: error.message,
       duration: 2800,
-      color: 'primary',
+      color: 'warning',
       position: 'middle',
       icon: 'alert-circle-outline',
     });
