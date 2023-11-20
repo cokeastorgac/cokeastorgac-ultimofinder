@@ -61,6 +61,8 @@ getProducts(){
 signOut(){
   this.firebaseSvc.signOut();
 }
+
+
 //agregar o actualizar un productos
 async addUpdateProduct(product?:Product){
   let success = await this.utilsSvc.presentModal({
