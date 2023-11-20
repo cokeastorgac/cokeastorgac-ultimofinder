@@ -40,7 +40,7 @@ export class AuthPage implements OnInit {
           duration: 5000,
           color: 'warning',
           icon: 'alert-circle-outline',
-          position: 'middle'
+          position: 'bottom'
         });
 
 
@@ -56,20 +56,20 @@ export class AuthPage implements OnInit {
       await loading.present();
 
       let path = `users/${uid}`;
-     
+
 
       this.firebaseSvc.getDocument(path).then((user: User | undefined)  => {
         if (user) {
           this.utilsSvc.saveInLocalStorage('user', user);
           this.utilsSvc.routerLink('/main/home');
           this.form.reset();
-      
+
           this.utilsSvc.presentToast({
             message: `Te damos la Bienvenida ${user.name}` ,
             duration: 5000,
-            color: 'primary',
+            color: 'success',
             icon: 'person-circle-outline',
-            position: 'middle'
+            position: 'bottom'
           });
         } else {
         // Puedes manejar el caso donde 'user' es undefined aquí
@@ -81,9 +81,9 @@ export class AuthPage implements OnInit {
         this.utilsSvc.presentToast({
           message: error.message,
           duration: 5000,
-          color: 'primary',
+          color: 'warning',
           icon: 'alert-circle-outline',
-          position: 'middle'
+          position: 'bottom'
         });
       }).finally(() => {
         loading.dismiss();

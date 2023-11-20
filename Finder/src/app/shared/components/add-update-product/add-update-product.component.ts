@@ -33,7 +33,7 @@ export class AddUpdateProductComponent  {
     site: new FormControl('', [Validators.required])
 
   });
-  
+
   ngOnInit() {
 
     this.user = this.utilsSvc.getFromLocalStorage('user');
@@ -51,14 +51,12 @@ export class AddUpdateProductComponent  {
   submit(){
     this.createProduct();
   }
-    
-  
 //crea producto
   async createProduct() {
     if (this.form.valid) {
-      
+
     let path = `users/${this.user.uid}/products`
-      
+
       const loading = await this.utilsSvc.presentLoading();
       await loading.present();
 
@@ -70,16 +68,16 @@ export class AddUpdateProductComponent  {
       delete this.form.value.id;
 
 
-      this.firebaseSvc.addDocument(path, this.form.value).then(async res => {  
+      this.firebaseSvc.addDocument(path, this.form.value).then(async () => {
 
         this.utilsSvc.dismissModal({ succes: true})
-        
+
         this.utilsSvc.presentToast({
           message: 'Objeto ingresado exitosamente',
           duration: 5000,
           color: 'success',
           icon: 'checkmark-circle-outline',
-          position: 'middle'
+          position: 'bottom'
         });
 
       }).catch(error => {
@@ -90,7 +88,7 @@ export class AddUpdateProductComponent  {
           duration: 5000,
           color: 'warning',
           icon: 'alert-circle-outline',
-          position: 'middle'
+          position: 'bottom'
         });
 
 
@@ -99,8 +97,8 @@ export class AddUpdateProductComponent  {
       });
     }
   }
- 
- 
+
+
 
  //actualiza producto
   async updateProduct() {
@@ -123,17 +121,16 @@ export class AddUpdateProductComponent  {
      delete this.form.value.id;
 
 
-     this.firebaseSvc.updateDocument(path, this.form.value).then(async res => {
+     this.firebaseSvc.updateDocument(path, this.form.value).then(async () => {
        this.utilsSvc.dismissModal({ success: true });
 
     this.utilsSvc.presentToast({
          message: 'Objeto actualizado correctamente',
          duration: 2800,
        color: 'success',
-         position: 'middle',
+         position: 'bottom',
          icon: 'checkmark-circle-outline'
        })
-       console.log(res);
 
        //control de error metodo catch
      }).catch(error => {
@@ -141,8 +138,8 @@ export class AddUpdateProductComponent  {
       this.utilsSvc.presentToast({
        message: error.message,
         duration: 2800,
-        color: 'primary',
-        position: 'middle',
+        color: 'warning',
+        position: 'bottom',
        icon: 'alert-circle-outline'
        })
        //cierra el loading
