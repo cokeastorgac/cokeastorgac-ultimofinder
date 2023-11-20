@@ -112,7 +112,7 @@ async deleteProduct(product: Product) {
       message: 'Objeto eliminado correctamente',
       duration: 2800,
       color: 'success',
-      position: 'bottom',
+      position: 'middle',
       icon: 'checkmark-circle-outline',
     });
   } catch (error) {
@@ -122,7 +122,7 @@ async deleteProduct(product: Product) {
       message: error.message,
       duration: 2800,
       color: 'warning',
-      position: 'bottom',
+      position: 'middle',
       icon: 'alert-circle-outline',
     });
   } finally {

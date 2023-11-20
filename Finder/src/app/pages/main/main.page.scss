@@ -14,7 +14,16 @@ ion-item{
     }
 
     &.active {
-        color: var(--ion-color-warning)
+        color: var(--ion-color-warning);
+
+        ion-icon{
+            color:var(--ion-color-warning);
+        }
     }
 }
 
+ion-menu{
+    --width: 254px;
+    --min-width: 254px;
+    outline: none;
+}

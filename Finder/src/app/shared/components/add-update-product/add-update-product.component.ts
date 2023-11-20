@@ -49,8 +49,6 @@ export class AddUpdateProductComponent  {
   }
 
   submit(){
-    this.createProduct();
-
   }
 //crea producto
   async createProduct() {
@@ -74,7 +72,7 @@ export class AddUpdateProductComponent  {
         this.utilsSvc.dismissModal({ succes: true})
 
         this.utilsSvc.presentToast({
-          message: 'Formulario creado exitosamente',
+          message: 'Objeto ingresado exitosamente',
           duration: 5000,
           color: 'success',
           icon: 'checkmark-circle-outline',
