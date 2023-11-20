@@ -14,17 +14,22 @@ import { AddUpdateProductComponent } from 'src/app/shared/components/add-update-
 })
 export class HomePage {
 
+
+  user = {} as User;
+  loading: boolean = false;
+  products: Product[]=[];
+
  constructor(
     private utilsSvc: UtilsService,
     private firebaseSvc: FirebaseService
   )
   {}
-  loading: boolean = false;
-  products: Product[]=[];
 
-  user(): User{
-    return this.utilsSvc.getFromLocalStorage('user');
+  getUser(){
+    return this.user = this.utilsSvc.getFromLocalStorage("user");
   }
+
+
   status(): boolean {
     return this.products && this.products.length > 0;
   }
@@ -42,15 +47,14 @@ export class HomePage {
   }
 //obtener productos
 getProducts(){
-  let path = `users/${this.user().uid}/products`;
+  this.getUser();
+  let path = `users/${this.user.uid}/products`;
 
   this.loading= true;
 
   let sub = this.firebaseSvc.getCollectionData(path).subscribe({
     next: (res: any) => {
-      console.log(res);
       this.products = res;
-
       this.loading = false;
       sub.unsubscribe();
     }
@@ -91,7 +95,7 @@ async confirmDeleteProduct(product: Product) {
 }
 //eliminar producto
 async deleteProduct(product: Product) {
-  let path = `users/${this.user().uid}/products/${product.id}`;
+  let path = `users/${this.user.uid}/products/${product.id}`;
 
   const loading = await this.utilsSvc.presentLoading();
   await loading.present();
@@ -107,8 +111,8 @@ async deleteProduct(product: Product) {
     this.utilsSvc.presentToast({
       message: 'Objeto eliminado correctamente',
       duration: 2800,
-      color: 'danger',
-      position: 'middle',
+      color: 'success',
+      position: 'bottom',
       icon: 'checkmark-circle-outline',
     });
   } catch (error) {
@@ -117,8 +121,8 @@ async deleteProduct(product: Product) {
     this.utilsSvc.presentToast({
       message: error.message,
       duration: 2800,
-      color: 'primary',
-      position: 'middle',
+      color: 'warning',
+      position: 'bottom',
       icon: 'alert-circle-outline',
     });
   } finally {
