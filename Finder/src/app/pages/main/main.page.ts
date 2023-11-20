@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { signOut } from 'firebase/auth';
+import { User } from 'src/app/models/user.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
 
@@ -30,6 +31,11 @@ currentPath: string = '';
     this.router.events.subscribe((event: any) => {
       if (event?.url) this.currentPath = event.url
     })
+  }
+
+  //usuario
+  user(): User{
+    return this.utilsSvc.getFromLocalStorage('user')
   }
 
   //cerrar sesion
