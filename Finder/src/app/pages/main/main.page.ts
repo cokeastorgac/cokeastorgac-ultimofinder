@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPage implements OnInit {
 
-  constructor() { }
+pages = [
+  {title: 'Inicio', url: 'home', icon: 'home-outline'},
+  {title: 'Perfil', url: 'prfile', icon: 'home-outline'}
+]
+
+router = inject(Router)
 
   ngOnInit() {
   }
