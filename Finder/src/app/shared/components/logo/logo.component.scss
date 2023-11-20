@@ -1,4 +1,17 @@
-.icon{
-    font-size: 180px;
-    margin-top: 30px;
+ion-grid{
+  margin: 10px 0 10px 0;
 }
+
+ion-row.main-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+
+ion-col.main-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
