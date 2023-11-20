@@ -49,6 +49,7 @@ export class AddUpdateProductComponent  {
   }
 
   submit(){
+    this.createProduct();
   }
 //crea producto
   async createProduct() {
