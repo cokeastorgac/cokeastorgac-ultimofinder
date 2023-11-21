@@ -46,7 +46,7 @@ export class ProfilePage implements OnInit {
          message: 'Imagen actualizada correctamente',
          duration: 2800,
        color: 'success',
-         position: 'middle',
+         position: 'bottom',
          icon: 'checkmark-circle-outline'
        })
        console.log(res);
@@ -58,7 +58,7 @@ export class ProfilePage implements OnInit {
        message: error.message,
         duration: 2800,
         color: 'primary',
-        position: 'middle',
+        position: 'bottom',
        icon: 'alert-circle-outline'
        })
        //cierra el loading
