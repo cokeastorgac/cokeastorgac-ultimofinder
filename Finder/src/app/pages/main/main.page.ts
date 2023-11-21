@@ -17,10 +17,10 @@ export class MainPage implements OnInit {
     private firebaseSvc: FirebaseService
   )
   {}
-
+ 
 pages = [
   {title: 'Inicio', url: 'home', icon: 'home-outline'},
-  {title: 'Perfil', url: 'prfile', icon: 'home-outline'}
+  {title: 'Perfil', url: 'profile', icon: 'home-outline'}
 ]
 
 router = inject(Router);

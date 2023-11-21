@@ -1,7 +1,10 @@
-<app-header title="Perfil"></app-header>
+<app-header title="Perfil" backButton="/main/home"></app-header>
 <ion-content class="ion-padding-top ion-text-center">
+  
   <ion-avatar>
+    
     <img [src]="user()?.image" />
+   
   </ion-avatar>
 
   <ion-button class="photo-btn" mode="ios" size="small" (click)="takeImage()" expand="block"  shape="round">
