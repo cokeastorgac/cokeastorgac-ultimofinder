@@ -27,19 +27,19 @@ export class ProfilePage implements OnInit {
   async takeImage() {
 
     let user = this.user();
-    let path = `users/${user.uid}}`
+    let path = `users/${user.uid}`
 
     const dataUrl = (await this.utilsSvc.takePicture('Imagen del Perfil')).dataUrl;
-    
+
     const loading = await this.utilsSvc.presentLoading();
     await loading.present()
 
-   
+
     let imagePath = `${user.uid}/profile`;
     user.image = await this.firebaseSvc.uploadImage(imagePath, dataUrl);
 
        this.firebaseSvc.updateDocument(path,{image: user.image}).then(async res => {
-     
+
    this.utilsSvc.saveInLocalStorage('user', user)
 
     this.utilsSvc.presentToast({
@@ -68,5 +68,5 @@ export class ProfilePage implements OnInit {
    }
   }
 
-  
+
 
