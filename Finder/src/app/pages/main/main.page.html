@@ -1,24 +1,17 @@
 <ion-menu contentId="menu-content" menuId="menu-content" side="start">
   <app-header title="Menú"></app-header>
-
+<!-- centra el contenido del menu -->
   <ion-content class="ion-text-center">
 
-    <ion-grid>
-      <ion-row>
-        <ion-col *ngIf="user().image" size="3" class="user-avatar-profile">
-          <ion-avatar>
-            <img [src]="user().image">
-          </ion-avatar>
-        </ion-col>
-        <ion-col *ngIf="!user().image" size="3" class="user-avatar-profile">
-          <ion-icon class="avatar-icon" name="person-outline"></ion-icon>
-        </ion-col>
-        <ion-col size="9" class="user-avatar-profile-name">
-          {{user().name}}
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
+<!-- muestra si existe foto -->
+<ion-avatar>
+  <img *ngIf="user()?.image" [src]="user()?.image" />
+<!-- si noe xiste muestra un icono -->
+  <ion-icon *ngIf="!user()?.image" class="empty-icon" name="person-circle-outline"></ion-icon>
+</ion-avatar>
+<!-- nombre de usuario para el menu -->
+<h4>{{user().name}}</h4>
+<!-- menu -->
     <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
       <ion-item [ngClass]="{'active': currentPath === p.url}" [routerLink]="p.url" routerDirection="root" detail>
         <ion-icon slot="start" [name]="p.icon"></ion-icon>
@@ -27,7 +20,7 @@
     </ion-menu-toggle>
 
   </ion-content>
-
+<!-- boton de cerrar sesion -->
   <ion-footer class="ion-no-border safe-p-bottom">
     <ion-menu-toggle auto-hide="false">
       <ion-button class="d-flex-center" (click)="signOut()" lines="none">
