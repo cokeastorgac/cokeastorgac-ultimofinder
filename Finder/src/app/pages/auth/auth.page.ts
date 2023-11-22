@@ -37,10 +37,10 @@ export class AuthPage implements OnInit {
 
         this.utilsSvc.presentToast({
           message: error.message,
-          duration: 5000,
+          duration: 2500,
           color: 'warning',
           icon: 'alert-circle-outline',
-          position: 'bottom'
+          position: 'middle'
         });
 
 
@@ -66,10 +66,10 @@ export class AuthPage implements OnInit {
 
           this.utilsSvc.presentToast({
             message: `Te damos la Bienvenida ${user.name}` ,
-            duration: 5000,
+            duration: 2500,
             color: 'success',
             icon: 'person-circle-outline',
-            position: 'bottom'
+            position: 'middle'
           });
         } else {
         // Puedes manejar el caso donde 'user' es undefined aquí
@@ -80,10 +80,10 @@ export class AuthPage implements OnInit {
         console.log(error);
         this.utilsSvc.presentToast({
           message: error.message,
-          duration: 5000,
+          duration: 2500,
           color: 'warning',
           icon: 'alert-circle-outline',
-          position: 'bottom'
+          position: 'middle'
         });
       }).finally(() => {
         loading.dismiss();
