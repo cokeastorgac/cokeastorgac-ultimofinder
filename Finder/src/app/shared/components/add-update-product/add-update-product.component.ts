@@ -74,10 +74,10 @@ export class AddUpdateProductComponent  {
 
         this.utilsSvc.presentToast({
           message: 'Objeto ingresado exitosamente',
-          duration: 5000,
+          duration: 2500,
           color: 'success',
           icon: 'checkmark-circle-outline',
-          position: 'bottom'
+          position: 'middle'
         });
 
       }).catch(error => {
@@ -85,10 +85,10 @@ export class AddUpdateProductComponent  {
 
         this.utilsSvc.presentToast({
           message: error.message,
-          duration: 5000,
+          duration: 2500,
           color: 'warning',
           icon: 'alert-circle-outline',
-          position: 'bottom'
+          position: 'middle'
         });
 
 
@@ -128,7 +128,7 @@ export class AddUpdateProductComponent  {
          message: 'Objeto actualizado correctamente',
          duration: 2800,
        color: 'success',
-         position: 'bottom',
+         position: 'middle',
          icon: 'checkmark-circle-outline'
        })
 
@@ -139,7 +139,7 @@ export class AddUpdateProductComponent  {
        message: error.message,
         duration: 2800,
         color: 'warning',
-        position: 'bottom',
+        position: 'middle',
        icon: 'alert-circle-outline'
        })
        //cierra el loading
