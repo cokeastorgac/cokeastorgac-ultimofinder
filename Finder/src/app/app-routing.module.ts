@@ -9,16 +9,17 @@ const routes: Routes = [
     redirectTo: 'auth',
     pathMatch: 'full'
   },
+
   {
     path: 'auth',
-    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule), //canActivate:[NoAuthGuard]
+    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule), canActivate:[NoAuthGuard]
   },
   {
     path: 'main',
     children: [
       {
         path: '',
-        loadChildren: () => import('./pages/main/main.module').then(m => m.MainPageModule), //canActivate:[AuthGuard]
+        loadChildren: () => import('./pages/main/main.module').then(m => m.MainPageModule), canActivate:[AuthGuard]
       },
       {
         path: 'home',
@@ -30,6 +31,7 @@ const routes: Routes = [
       }
     ]
   },
+  { path: '**', redirectTo: 'main/home' }
 ];
 
 @NgModule({
