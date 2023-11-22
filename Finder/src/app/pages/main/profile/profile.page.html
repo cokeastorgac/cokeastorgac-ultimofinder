@@ -1,26 +1,35 @@
 <app-header title="Perfil" backButton="/main/home"></app-header>
-<ion-content class="ion-padding-top ion-text-center">
-  
-  <ion-avatar>
-    
-    <img [src]="user()?.image" />
+<ion-content >
+  <ion-card>
+    <ion-card-header>
+      <ion-avatar>
+        <br><!-- muestra si existe foto -->
+        <img  *ngIf="user()?.image" [src]="user()?.image" />
+        <!-- si no existe muestra un icono -->
+        <ion-icon *ngIf="!user()?.image" class="empty-icon" name="person-circle-outline"></ion-icon>
+      </ion-avatar>
+    <br>
+    <!-- boton saca foto -->
+      <ion-button class="photo-btn" mode="ios" size="small" (click)="takeImage()"   shape="round">
+        <ion-icon  name="camera-outline"></ion-icon>
+      </ion-button>
+    </ion-card-header>
+    <!-- nombre de usuario para el perfil-->
+    <ion-card-subtitle><h2>{{user().name}}</h2></ion-card-subtitle>
+    <ion-card-content class="ion-padding-top ion-text-center">
    
-  </ion-avatar>
-
-  <ion-button class="photo-btn" mode="ios" size="small" (click)="takeImage()" expand="block"  shape="round">
-    <ion-icon  name="camera-outline"></ion-icon>
-  </ion-button>
-
-  <h2>{{user().name}}</h2>
-
-  <ion-item button detail>
-    <ion-icon color="primary" slot="start" name="person-outline"></ion-icon>
-    <ion-label>Editar Perfil</ion-label>
-  </ion-item>
-
-  <ion-item button detail>
-    <ion-icon color="primary" slot="start" name="document-outline"></ion-icon>
-    <ion-label>Terminos & Condiciones</ion-label>
-  </ion-item>
-
+    <!-- menu de perfil -->
+      <ion-item button detail>
+        <ion-icon color="primary" slot="start" name="person-outline"></ion-icon>
+        <ion-label>Mis reportes</ion-label>
+      </ion-item>
+    
+      <ion-item button detail>
+        <ion-icon color="primary" slot="start" name="document-outline"></ion-icon>
+        <ion-label>Terminos & Condiciones</ion-label>
+      </ion-item>
+    
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>

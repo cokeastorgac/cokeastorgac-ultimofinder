@@ -1,9 +1,12 @@
 <app-header title="Inicio"></app-header>
 
 <ion-content>
-
-  <app-logo></app-logo>
-
+<ion-card>
+  <ion-header>
+    <app-logo></app-logo>
+  </ion-header>
+  <ion-card-content>
+    
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -73,4 +76,8 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+  </ion-card-content>
+</ion-card>
+  
+
 </ion-content>

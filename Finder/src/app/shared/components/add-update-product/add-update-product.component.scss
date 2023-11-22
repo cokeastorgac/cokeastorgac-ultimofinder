@@ -1,6 +1,7 @@
 .image-icon{
     font-size: 100px;
     opacity: 30%;
+    margin: 0 auto;
   }
   
   ion-avatar{
@@ -9,3 +10,11 @@
     --border-radius: 15px;
     margin: 0 auto;
   }
+
+  .photo-btn{
+    margin: 0 auto;
+    bottom: 25px;
+    width: 150px; /* Ancho del botón */
+    height: 40px; /* Altura del botón */
+    font-size: 16px;
+}
