@@ -32,6 +32,8 @@ const routes: Routes = [
     ]
   },
   { path: '**', redirectTo: 'main/home' }
+ 
+
 ];
 
 @NgModule({
