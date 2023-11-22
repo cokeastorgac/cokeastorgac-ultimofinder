@@ -1,3 +1,4 @@
+<div class="animate__animated animate__fadeInDown"></div>
 <ion-item *ngIf="type !== 'textarea'" class="ion-margin-vertical" lines="none">
   <ion-icon color="primary" *ngIf="icon" slot="start" [name]="icon"></ion-icon>
   <ion-label position="floating">{{label}}</ion-label>
@@ -11,5 +12,5 @@
 </ion-item>
 
 <ion-item *ngIf="type === 'textarea'" class="ion-margin-vertical">
-  <ion-textarea auto-grow="true" debounce="500" [formControl]="control" labelPlacement="floating" label="{{label}}"></ion-textarea>
+  <ion-textarea debounce="500" [formControl]="control" labelPlacement="floating" label="{{label}}"></ion-textarea>
 </ion-item>
