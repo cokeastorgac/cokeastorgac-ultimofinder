@@ -1,16 +1,16 @@
 ion-content{
     --background: var(--ion-color-primary);
     --color: var(--ion-color-primary-contrast);
-    --pading-top: 20px;
+    --pading-top: 200px;
 }
 
 ion-item{
     font-size: 14px;
-    color: var(--ion-color-light);
+    color: var(--ion-color-primary-contrast);
     --background: var(--ion-color-primary);
 
     ion-icon{
-        color: var(--ion-color-light);
+        color: var(--ion-color-primary-contrast);
     }
 
     &.active {
@@ -31,6 +31,7 @@ ion-col.user-avatar-profile-name {
 
 ion-col.user-avatar-profile{
   padding: 10px;
+ 
 }
 
 ion-menu{
@@ -41,14 +42,15 @@ ion-menu{
 
 
 h4{
-    margin-top: 5px;
+    margin-top: 15px;
     font-weight: bold;
 }
 
 ion-avatar{
     width: 120px;
     height: 120px;
-    margin: 0 auto;
+    margin-top: 30px;
+    margin-left: 70px;    
 }
 
 .empty-icon{
